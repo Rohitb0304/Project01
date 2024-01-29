@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Project</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inria Serif-Bold", Helvetica;
+            background-color: #0D0C0B;
+            color: #fff;
+        }
+
+        .project-details {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #5ac5bf;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #5ac5bf;
+        }
+
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5ac5bf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-details" id="projectDetails">
+        <!-- Project details will be dynamically added here -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Sample project data (replace this with your actual project data)
+            const projectsData = [
+                { name: "E-commerce Website", difficulty: "Intermediate", techStack: "React.js, Node.js, MongoDB", price: 80 },
+                { name: "Blog Platform", difficulty: "Intermediate", techStack: "Vue.js, Django, PostgreSQL", price: 80 },
+                // ... (existing projects)
+
+        // Web Development Projects
+        { name: "Portfolio Website", category: "Web Development", techStack: "HTML, CSS, JavaScript (Frontend), Node.js (Backend)", difficulty: "Beginner" },
+        { name: "Social Media Dashboard", category: "Web Development", techStack: "Angular (Frontend), Flask (Backend), MongoDB (Database)", difficulty: "Intermediate" },
+        { name: "Online Learning Platform", category: "Web Development", techStack: "React.js (Frontend), Node.js (Backend), MongoDB (Database), Express.js", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // App Development Projects
+        { name: "Expense Tracker App", category: "App Development", techStack: "React Native (Cross-platform), Firebase (Database)", difficulty: "Intermediate" },
+        { name: "Fitness Tracking App", category: "App Development", techStack: "Flutter (Cross-platform), SQLite (Database)", difficulty: "Intermediate" },
+        { name: "Weather App", category: "App Development", techStack: "Swift (iOS), Java (Android), OpenWeatherMap API", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // Machine Learning Projects
+        { name: "Image Recognition System", category: "Machine Learning", techStack: "TensorFlow (Library), Flask (Backend)", difficulty: "Advanced" },
+        { name: "Sentiment Analysis Tool", category: "Machine Learning", techStack: "Python, NLTK (Natural Language Toolkit)", difficulty: "Intermediate" },
+        { name: "Predictive Stock Price Model", category: "Machine Learning", techStack: "Python, Pandas, scikit-learn", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // Chatbot Projects
+        { name: "Customer Support Chatbot", category: "Chatbot", techStack: "Dialogflow (NLP), Node.js (Backend)", difficulty: "Intermediate" },
+        { name: "Educational Q&A Chatbot", category: "Chatbot", techStack: "Python, ChatterBot", difficulty: "Intermediate" },
+        { name: "Appointment Scheduling Chatbot", category: "Chatbot", techStack: "Botpress (Framework), MongoDB (Database)", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // Cryptocurrency and Blockchain Projects
+        { name: "Cryptocurrency Price Tracker", category: "Blockchain", techStack: "React.js (Frontend), Node.js (Backend), CoinGecko API", difficulty: "Intermediate" },
+        { name: "Blockchain-based Voting System", category: "Blockchain", techStack: "Ethereum (Smart Contracts), Solidity, Web3.js", difficulty: "Advanced" },
+        { name: "Decentralized Finance (DeFi) Dashboard", category: "Blockchain", techStack: "React.js (Frontend), Node.js (Backend), Ethereum Smart Contracts", difficulty: "Advanced" },
+        // ... (add more projects as needed)
+
+        // Cybersecurity Projects
+        { name: "Password Manager", category: "Cybersecurity", techStack: "React.js (Frontend), Flask (Backend), SQLite (Database)", difficulty: "Intermediate" },
+        { name: "Network Security Scanner", category: "Cybersecurity", techStack: "Python, Nmap", difficulty: "Intermediate" },
+        { name: "Intrusion Detection System (IDS)", category: "Cybersecurity", techStack: "Snort (Open Source IDS), Python", difficulty: "Advanced" },
+        // ... (add more projects as needed)
+            ];
+
+            // Get project name from query parameters
+            const params = new URLSearchParams(window.location.search);
+            const projectName = params.get("project");
+
+            // Find the project based on the name
+            const project = projectsData.find(proj => proj.name === projectName);
+
+            if (project) {
+                displayProjectDetails(project);
+            } else {
+                // Handle the case where the project is not found
+                alert("Project not found!");
+                window.location.href = "projects.html"; // Redirect to projects page
+            }
+        });
+
+        function displayProjectDetails(project) {
+            const projectDetailsContainer = document.getElementById("projectDetails");
+
+            projectDetailsContainer.innerHTML = `
+                <h2>${project.name}</h2>
+                <p><strong>Difficulty:</strong> ${project.difficulty}</p>
+                <p><strong>Tech Stack:</strong> ${project.techStack}</p>
+                <p class="price">Price: &#8377;${getPriceByDifficulty(project.difficulty)}</p>
+                <a href="projects.html" class="back-button">Back to Projects</a>
+            `;
+        }
+
+        function getPriceByDifficulty(difficulty) {
+            switch (difficulty.toLowerCase()) {
+                case "hard":
+                    return 1800;
+                case "intermediate":
+                    return 1200;
+                case "easy", "beginner":
+                    return 800;
+                default:
+                    return 0;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inria Serif-Bold", Helvetica;
+    background-color: #0D0C0B;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #5ac5bf; 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .text-wrapper {
+    -webkit-text-stroke: 1px #ffffff47;
+    font-size: 36px;
+    font-weight: 700;
+    color: #5ac5bf;
+    letter-spacing: -0.61px;
+    line-height: normal;
+    margin-left: 10px;
+}
+
+.search {
+    position: relative;
+    width: 240px;
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    opacity: 50%;
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search input::placeholder {
+    color: #a0a0a0;
+}
+
+.search i {
+    position: absolute;
+    right: 10px;
+    color: #fff;
+}
+
+.filter-icon {
+    left: 10px;
+    cursor: pointer;
+    color: #5ac5bf;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #5ac5bf;
+}
+
+.signup-box {
+    background-color: #795547;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.signup-box a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Drawer styles */
+.drawer-icon {
+    cursor: pointer;
+    display: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    z-index: 1000;
+    display: none;
+}
+
+.drawer a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.drawer a:hover {
+    color: #5ac5bf;
+}
+
+.drawer-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .links {
+        display: none;
+    }
+
+    .drawer-icon {
+        display: block;
+    }
+
+    .drawer a {
+        padding: 20px 0;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+}
+
+/* Add styles for language logos and overlay */
+.language-logo {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.3s ease-in-out;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.overlay img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.learn-button {
+    padding: 10px 20px;
+    background-color: #5ac5bf;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Add styles for the overlay close button */
+.overlay-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Projects Section */
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #5ac5bf;
+}
+
+#projects {
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    top: 100%;
+    z-index: 999;
+    transition: top 0.5s ease-in-out;
+}
+
+.project-card {
+    background-color: #333;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    width: 40%;
+    display: inline-block;
+    user-select: none;
+}
+
+.links a.active {
+            color: #5ac5bf;
+            font-weight: bold;
+        }
+/* #showMoreButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #5ac5bf;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+} */
+
+.project-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002; /* Higher z-index to overlay content */
+        }
+
+        .project-overlay-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .get-project-button {
+            background-color: #5ac5bf;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .project-card:hover {
+    background-color: #555; /* Change to your desired hover color */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><div class="text-wrapper">Hustlers</div></div>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="filter-icon">
+            <i class="fas fa-filter"></i>
+        </div>
+        <div class="drawer-icon" onclick="toggleDrawer()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="projects.html" class="active">Projects</a>
+        </div>
+        <div class="signup-box">
+            <a href="signin.html">Join</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <!-- Include your existing main container content from index.html here -->
+        </div>
+
+        <section id="projects" class="projects-container">
+            <h2>Projects</h2>
+            
+            <!-- Inside the <section id="projects" class="projects-container"> -->
+                <div class="project-overlay" id="projectOverlay">
+                    <div class="project-overlay-content" id="projectOverlayContent">
+                        <!-- Project details will be dynamically added here -->
+                        <button class="get-project-button" onclick="getProject()">Get this project</button>
+                        <span class="overlay-close" onclick="closeProjectOverlay()">&times;</span>
+                    </div>
+                </div>
+
+        <!-- Web Development Projects -->
+        <h3>Web Development Projects</h3>
+
+        <div class="project-card">
+            <h3>E-commerce Website</h3>
+            <p><strong>Tech Stack 1:</strong> React.js (Frontend), Node.js (Backend), MongoDB (Database), Express.js</p>
+            <p><strong>Tech Stack 2:</strong> Angular (Frontend), Spring Boot (Backend), PostgreSQL (Database)</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Blog Platform</h3>
+            <p><strong>Tech Stack 1:</strong> Vue.js (Frontend), Django (Backend), PostgreSQL (Database)</p>
+            <p><strong>Tech Stack 2:</strong> React.js (Frontend), Flask (Backend), MySQL (Database)</p>
+        </div>
+
+        <!-- Add more web development projects as needed -->
+
+        <!-- App Development Projects -->
+        <h3>App Development Projects</h3>
+
+        <div class="project-card">
+            <h3>Expense Tracker App</h3>
+            <p><strong>Tech Stack:</strong> React Native (Cross-platform), Firebase (Database)</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Fitness Tracking App</h3>
+            <p><strong>Tech Stack:</strong> Flutter (Cross-platform), SQLite (Database)</p>
+        </div>
+
+        <!-- Add more app development projects as needed -->
+
+        <!-- Machine Learning Projects -->
+        <h3>Machine Learning Projects</h3>
+
+        <div class="project-card">
+            <h3>Image Recognition System</h3>
+            <p><strong>Tech Stack:</strong> TensorFlow (Library), Flask (Backend)</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Sentiment Analysis Tool</h3>
+            <p><strong>Tech Stack:</strong> Python, NLTK (Natural Language Toolkit)</p>
+        </div>
+
+        <!-- Add more machine learning projects as needed -->
+
+        <!-- Chatbot Projects -->
+        <h3>Chatbot Projects</h3>
+
+        <div class="project-card">
+            <h3>Customer Support Chatbot</h3>
+            <p><strong>Tech Stack:</strong> Dialogflow (NLP), Node.js (Backend)</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Appointment Scheduling Chatbot</h3>
+            <p><strong>Tech Stack:</strong> Botpress (Framework), MongoDB (Database)</p>
+        </div>
+
+        <!-- Add more chatbot projects as needed -->
+
+        <!-- Cryptocurrency and Blockchain Projects -->
+        <h3>Cryptocurrency and Blockchain Projects</h3>
+
+        <div class="project-card">
+            <h3>Cryptocurrency Price Tracker</h3>
+            <p><strong>Tech Stack:</strong> React.js (Frontend), Node.js (Backend), CoinGecko API</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Blockchain-based Voting System</h3>
+            <p><strong>Tech Stack 1:</strong> Ethereum (Smart Contracts), Solidity, Web3.js</p>
+            <p><strong>Tech Stack 2:</strong> Hyperledger Fabric (Framework), Node.js (Backend)</p>
+        </div>
+
+        <!-- Add more cryptocurrency and blockchain projects as needed -->
+
+        <!-- Cybersecurity Projects -->
+        <h3>Cybersecurity Projects</h3>
+
+        <div class="project-card">
+            <h3>Password Manager</h3>
+            <p><strong>Tech Stack:</strong> React.js (Frontend), Flask (Backend), SQLite (Database)</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Network Security Scanner</h3>
+            <p><strong>Tech Stack:</strong> Python, Nmap</p>
+        </div>
+
+        <!-- Add more cybersecurity projects as needed -->
+
+
+        </section>
+    </main>
+
+    
+
+<script>
+    // Sample project data (replace this with your actual project data)
+    const projectsData = [
+        // Existing projects
+        { name: "E-commerce Website", category: "Web Development", techStack: "React.js, Node.js, MongoDB", difficulty: "Intermediate" },
+        { name: "Blog Platform", category: "Web Development", techStack: "Vue.js, Django, PostgreSQL", difficulty: "Intermediate" },
+        // ... (existing projects)
+
+        // Web Development Projects
+        { name: "Portfolio Website", category: "Web Development", techStack: "HTML, CSS, JavaScript (Frontend), Node.js (Backend)", difficulty: "Beginner" },
+        { name: "Social Media Dashboard", category: "Web Development", techStack: "Angular (Frontend), Flask (Backend), MongoDB (Database)", difficulty: "Intermediate" },
+        { name: "Online Learning Platform", category: "Web Development", techStack: "React.js (Frontend), Node.js (Backend), MongoDB (Database), Express.js", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // App Development Projects
+        { name: "Expense Tracker App", category: "App Development", techStack: "React Native (Cross-platform), Firebase (Database)", difficulty: "Intermediate" },
+        { name: "Fitness Tracking App", category: "App Development", techStack: "Flutter (Cross-platform), SQLite (Database)", difficulty: "Intermediate" },
+        { name: "Weather App", category: "App Development", techStack: "Swift (iOS), Java (Android), OpenWeatherMap API", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // Machine Learning Projects
+        { name: "Image Recognition System", category: "Machine Learning", techStack: "TensorFlow (Library), Flask (Backend)", difficulty: "Advanced" },
+        { name: "Sentiment Analysis Tool", category: "Machine Learning", techStack: "Python, NLTK (Natural Language Toolkit)", difficulty: "Intermediate" },
+        { name: "Predictive Stock Price Model", category: "Machine Learning", techStack: "Python, Pandas, scikit-learn", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // Chatbot Projects
+        { name: "Customer Support Chatbot", category: "Chatbot", techStack: "Dialogflow (NLP), Node.js (Backend)", difficulty: "Intermediate" },
+        { name: "Educational Q&A Chatbot", category: "Chatbot", techStack: "Python, ChatterBot", difficulty: "Intermediate" },
+        { name: "Appointment Scheduling Chatbot", category: "Chatbot", techStack: "Botpress (Framework), MongoDB (Database)", difficulty: "Intermediate" },
+        // ... (add more projects as needed)
+
+        // Cryptocurrency and Blockchain Projects
+        { name: "Cryptocurrency Price Tracker", category: "Blockchain", techStack: "React.js (Frontend), Node.js (Backend), CoinGecko API", difficulty: "Intermediate" },
+        { name: "Blockchain-based Voting System", category: "Blockchain", techStack: "Ethereum (Smart Contracts), Solidity, Web3.js", difficulty: "Advanced" },
+        { name: "Decentralized Finance (DeFi) Dashboard", category: "Blockchain", techStack: "React.js (Frontend), Node.js (Backend), Ethereum Smart Contracts", difficulty: "Advanced" },
+        // ... (add more projects as needed)
+
+        // Cybersecurity Projects
+        { name: "Password Manager", category: "Cybersecurity", techStack: "React.js (Frontend), Flask (Backend), SQLite (Database)", difficulty: "Intermediate" },
+        { name: "Network Security Scanner", category: "Cybersecurity", techStack: "Python, Nmap", difficulty: "Intermediate" },
+        { name: "Intrusion Detection System (IDS)", category: "Cybersecurity", techStack: "Snort (Open Source IDS), Python", difficulty: "Advanced" },
+        // ... (add more projects as needed)
+    ];
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Highlight the "Projects" button in the header
+        const projectsButton = document.querySelector(".links a[href='projects.html']");
+        projectsButton.classList.add("active");
+
+        // Populate project cards on page load
+        displayProjects(projectsData);
+
+        // Filter projects when the user types in the search bar
+        const searchInput = document.querySelector(".search input");
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const filteredProjects = filterProjects(projectsData, searchTerm);
+            displayProjects(filteredProjects);
+        });
+
+        // Add event listener for difficulty level selection
+        const difficultySelect = document.getElementById("difficultySelect");
+        difficultySelect.addEventListener("change", function () {
+            const selectedDifficulty = difficultySelect.value;
+            const filteredProjects = filterProjectsByDifficulty(projectsData, selectedDifficulty);
+            displayProjects(filteredProjects);
+        });
+    });
+
+    // Function to display project cards
+    function displayProjects(projects) {
+        const projectsSection = document.getElementById("projects");
+        projectsSection.innerHTML = ""; // Clear existing projects
+
+        projects.forEach((project) => {
+            const projectCard = createProjectCard(project);
+            projectsSection.appendChild(projectCard);
+        });
+    }
+
+    // Function to create a project card
+    function createProjectCard(project) {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project-card");
+
+        projectCard.innerHTML = `
+            <h3>${project.name}</h3>
+            <p><strong>Category:</strong> ${project.category}</p>
+            <p><strong>Tech Stack:</strong> ${project.techStack}</p>
+            <p><strong>Difficulty:</strong> ${project.difficulty}</p>
+            <button class="get-project-button" onclick="redirectToGetProject('${project.name}')">Get Project</button>
+        `;
+
+        // Add event listener to open overlay on project card click
+        projectCard.addEventListener("click", function () {
+            openProjectOverlay(project);
+        });
+
+        return projectCard;
+    }
+
+    // Function to open project overlay
+    function openProjectOverlay(project) {
+        const projectOverlay = document.getElementById("projectOverlay");
+        const projectOverlayContent = document.getElementById("projectOverlayContent");
+
+        // Update project overlay content based on clicked project
+        projectOverlayContent.innerHTML = `
+            <h3>${project.name}</h3>
+            <p><strong>Category:</strong> ${project.category}</p>
+            <p><strong>Tech Stack:</strong> ${project.techStack}</p>
+            <p><strong>Difficulty:</strong> ${project.difficulty}</p>
+            <button class="get-project-button" onclick="redirectToGetProject('${project.name}')">Get Project</button>
+            <span class="overlay-close" onclick="closeProjectOverlay()">&times;</span>
+        `;
+
+        // Display the project overlay
+        projectOverlay.style.display = "flex";
+    }
+
+    // Function to close project overlay
+    function closeProjectOverlay() {
+        const projectOverlay = document.getElementById("projectOverlay");
+        projectOverlay.style.display = "none";
+    }
+
+    // Function to filter projects based on search term
+    function filterProjects(projects, searchTerm) {
+        return projects.filter((project) =>
+            project.name.toLowerCase().includes(searchTerm) ||
+            project.category.toLowerCase().includes(searchTerm) ||
+            project.techStack.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    // Function to filter projects based on difficulty level
+    function filterProjectsByDifficulty(projects, difficulty) {
+        return projects.filter((project) =>
+            project.difficulty.toLowerCase() === difficulty.toLowerCase()
+        );
+    }
+
+    // Function to redirect to the get_project.html page
+    function redirectToGetProject(projectName) {
+        // Replace the following line with the actual redirection logic
+        window.location.href = "get_project.html?project=" + encodeURIComponent(projectName);
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fetch and inject the content of footer.html into #footerContainer
+        const footerContainer = document.getElementById("footerContainer");
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(html => {
+                footerContainer.innerHTML = html;
+            })
+            .catch(error => console.error("Error fetching footer.html:", error));
+    });
+
+
+</script>
+
+<!-- Existing HTML code below this line -->
+
+
+<div id="footerContainer"></div> <!-- This div will be used to inject the footer content -->
+</body>
+</html>
