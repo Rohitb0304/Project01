@@ -18,17 +18,20 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            border-bottom: 2px solid #5ac5bf;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            background-color: #0D0C0B;
-            z-index: 1000;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #5ac5bf;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #0D0C0B;
+    z-index: 1000;
+    height: 60px; /* Set a fixed height for the header */
+    box-sizing: border-box; /* Include padding and borders in the total width and height */
+}
+
 
         .logo {
             display: flex;
@@ -110,29 +113,41 @@
         .team-member p {
             margin-bottom: 10px;
         }
+        .join-community {
+            background-color: #29bb00;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+.join-community a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <div class="text-wrapper">Hustlers</div>
+            <a href="index.html"><div class="logo"><div class="text-wrapper">ProjectWall</div></div></a>
         </div>
         <div class="links">
             <a href="index.html">Home</a>
             <a href="about-us.html" class="active">About Us</a>
             <a href="contact.html">Contact Us</a>
-            <a href="projects.html">Projects</a>
+            <!-- <a href="projects.html">Projects</a> -->
+            <a href="project_ideas.html">Project Ideas</a>
         </div>
-        <div class="signup-box">
-            <a href="/signup/signin.html">Signup</a>
+        <div class="join-community">
+            <a href="https://chat.whatsapp.com/HJq51NTpYpYAn9N7TvuCRJ">Join</a>
         </div>
     </header>
 
     <div class="about-container">
         <h2>About Us</h2>
         <div class="about-content">
-            <p>Welcome to Hustlers, where innovation meets creativity. We are a passionate team of individuals dedicated to delivering cutting-edge solutions in the world of technology.</p>
-            <p>At Hustlers, our mission is to empower businesses and individuals through technology. We strive to create impactful projects that make a difference in the digital landscape.</p>
+            <p>Welcome to ProjectWall, where innovation meets creativity. We are a passionate team of individuals dedicated to delivering cutting-edge solutions in the world of technology.</p>
+            <p>At ProjectWall, our mission is to empower businesses and individuals through technology. We strive to create impactful projects that make a difference in the digital landscape.</p>
             <div class="team-member">
                 <h3>Meet Our Team</h3>
                 <p>Our team consists of skilled professionals with expertise in web development, mobile app development, data science, and more. We believe in collaboration, continuous learning, and pushing the boundaries of what's possible.</p>
