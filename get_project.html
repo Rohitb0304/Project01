@@ -6,57 +6,165 @@
     <title>Get Project</title>
 
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Inria Serif-Bold", Helvetica;
-            background-color: #0D0C0B;
-            color: #fff;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inria Serif-Bold", Helvetica;
+    background-color: #0D0C0B;
+    color: #fff;
+}
 
-        .project-details {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #333;
-            border-radius: 10px;
-        }
+.project-details {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+}
 
-        h2 {
-            color: #5ac5bf;
-            text-align: center;
-        }
+h2 {
+    color: #5ac5bf;
+    text-align: center;
+}
 
-        p {
-            margin-bottom: 15px;
-        }
+p {
+    margin-bottom: 15px;
+}
 
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: #5ac5bf;
-        }
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5ac5bf;
+}
 
-        .back-button {
-            display: block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #5ac5bf;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
-        }
+.back-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #5ac5bf;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Additional styles for the contact form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #5ac5bf;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #5ac5bf;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #5ac5bf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #333;
+    padding: 20px;
+    margin: 15% auto;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #5ac5bf;
+}
+
     </style>
 </head>
 <body>
     <div class="project-details" id="projectDetails">
         <!-- Project details will be dynamically added here -->
     </div>
+    <button id="contactButton" class="back-button" onclick="openContactModal()">Contact Project Owner</button>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <h2>Contact Project Owner</h2>
+            <form onsubmit="sendEmail(); return false;">
+                <label for="contactNumber">Your Contact Number:</label>
+                <input type="text" id="contactNumber" name="contactNumber" required>
+                <input type="submit" value="Send Email">
+            </form>
+        </div>
+    </div>
 
     <script>
+        function openContactModal() {
+            const contactModal = document.getElementById("contactModal");
+            contactModal.style.display = "block";
+        }
+
+        function closeContactModal() {
+            const contactModal = document.getElementById("contactModal");
+            contactModal.style.display = "none";
+        }
+
+        function sendEmail() {
+            const projectName = document.getElementById("projectDetails").querySelector("h2").textContent;
+            const contactNumber = document.getElementById("contactNumber").value;
+
+            // You can customize the email subject and body here
+            const subject = `Interested in Project: ${projectName}`;
+            const body = `My Contact Number: ${contactNumber}`;
+
+            // Create a mailto link with the subject and body
+            const mailtoLink = `mailto:rohit.bansode0410@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Open the user's default email client with the pre-filled email
+            window.location.href = mailtoLink;
+
+            // Optionally, you can close the modal after sending the email
+            closeContactModal();
+        }
         document.addEventListener("DOMContentLoaded", function () {
             // Sample project data (replace this with your actual project data)
             const projectsData = [
@@ -124,23 +232,11 @@
                 <h2>${project.name}</h2>
                 <p><strong>Difficulty:</strong> ${project.difficulty}</p>
                 <p><strong>Tech Stack:</strong> ${project.techStack}</p>
-                <p class="price">Price: &#8377;${getPriceByDifficulty(project.difficulty)}</p>
-                <a href="projects.html" class="back-button">Back to Projects</a>
+                <a href="project_ideas.html" class="back-button">Back to Projects</a>
             `;
         }
 
-        function getPriceByDifficulty(difficulty) {
-            switch (difficulty.toLowerCase()) {
-                case "hard":
-                    return 1800;
-                case "intermediate":
-                    return 1200;
-                case "easy", "beginner":
-                    return 800;
-                default:
-                    return 0;
-            }
-        }
+        
     </script>
 </body>
 </html>
