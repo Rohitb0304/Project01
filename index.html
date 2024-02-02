@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hustlers</title>
+    <title>ProjectWall</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 
     <style>
         body {
@@ -16,12 +17,21 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            border-bottom: 2px solid #5ac5bf; 
-        }
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #5ac5bf;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #0D0C0B;
+    z-index: 1000;
+    height: 60px; /* Set a fixed height for the header */
+    box-sizing: border-box; /* Include padding and borders in the total width and height */
+}
+
 
         .logo {
             display: flex;
@@ -89,13 +99,13 @@
             color: #5ac5bf;
         }
 
-        .signup-box {
-            background-color: #795547;
+        .join-community {
+            background-color: #29bb00;
             padding: 10px 20px;
             border-radius: 5px;
         }
 
-        .signup-box a {
+        .join-community a {
             text-decoration: none;
             color: #fff;
             font-weight: 700;
@@ -354,22 +364,69 @@
             color: #5ac5bf;
             font-weight: bold;
         }
+        .popup {
+            position: relative;
+            top: 60px; /* Adjust the top position as needed */
+            right: -300px; /* Initial position outside the screen */
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            transition: right 0.5s ease-in-out;
+            display: none; /* Initially hide the popup */
+        }
+
+        #desktopModeDialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    text-align: center;
+}
+
+#desktopModeDialog p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#desktopModeDialog button {
+    padding: 10px 20px;
+    background-color: #5ac5bf;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#desktopModeDialog button:hover {
+    background-color: #4aa296;
+}
 
 
-
+        
         
     </style>
 </head>
 <body>
+    <div id="desktopModeDialog" class="overlay">
+        <div class="overlay-content">
+            <p>Best viewed in desktop mode</p>
+            <button onclick="showDesktopModeAlert()">OK</button>
+        </div>
+    </div>
     <header>
-        <div class="logo"><div class="text-wrapper">Hustlers</div></div>
-        <div class="search">
-            <input type="text" placeholder="Search">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="filter-icon">
-            <i class="fas fa-filter"></i>
-        </div>
+        <div class="logo"><div class="text-wrapper">ProjectWall</div></div>
+        
         <div class="drawer-icon" onclick="toggleDrawer()">
             <i class="fas fa-bars"></i>
         </div>
@@ -377,12 +434,14 @@
             <a href="index.html" class="active">Home</a>
             <a href="about-us.html">About Us</a>
             <a href="contact.html">Contact Us</a>
-            <a href="projects.html">Projects</a>
+            <!-- <a href="projects.html">Projects</a> -->
+            <a href="project_ideas.html">Project Ideas</a>
         </div>
-        <div class="signup-box">
-            <a href="https://chat.whatsapp.com/FqjB1hqDzgWDFz1ZyA9SCJ">Join Community</a>
+        <div class="join-community">
+            <a href="https://chat.whatsapp.com/HJq51NTpYpYAn9N7TvuCRJ">Join</a>
         </div>
     </header>
+    
 
     <!-- Drawer Content -->
     <div class="drawer" id="myDrawer">
@@ -392,16 +451,17 @@
         <a href="index.html">Home</a>
         <a href="about-us.html">About Us</a>
         <a href="contact.html">Contact Us</a>
-        <a href="projects.html">Projects</a>
+        <a href="project_ideas.html">project_ideas</a>
         <a href="signin.html">Join</a>
     </div>
+    
 
     <main>
         <div class="main-container">
-            <!-- Main container content ... -->
+            
             <div class="label">
                 <br><br><br>
-                <div class="welcome-to-the">Welcome to the Hustlers page</div>
+                <div class="welcome-to-the">Welcome to the ProjectWall page</div>
             </div>
             <div class="ellipse-container">
 
@@ -464,7 +524,7 @@
                         <img src="Icons and Logos/django.svg" alt="Django Logo">
                     </div>
 
-                    <!-- Add more languages and stacks as needed -->
+                    
 
 
 
@@ -513,7 +573,7 @@
             </div>
     
             
-            <a href="projects-page.html" id="showMoreButton">Show More</a>
+            <a href="projects.html" id="showMoreButton">Show More</a>
         </section>
         
     </main>
@@ -522,6 +582,10 @@
     
 
     <script>
+        // JavaScript to show the popup
+      
+
+
         // reactScript to handle drawer toggle
         function toggleDrawer() {
             var drawer = document.getElementById("myDrawer");
@@ -626,8 +690,29 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error fetching footer.html:", error));
     });
 
+    
+// JavaScript function to show an alert for desktop mode
+function showDesktopModeAlert() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Best viewed in desktop mode',
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+        onClose: closeDesktopModeAlert
+    });
+}
+
+function closeDesktopModeAlert() {
+    // Code to be executed when the alert is closed
+}
+
+
+// Call the showDesktopModeAlert function when the page is loaded
+document.addEventListener("DOMContentLoaded", showDesktopModeAlert);
+
+
     </script>
 
-<div id="footerContainer"></div> <!-- This div will be used to inject the footer content -->
+<div id="footerContainer"></div> 
 </body>
 </html>
