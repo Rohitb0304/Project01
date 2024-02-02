@@ -21,8 +21,16 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 2px solid #5ac5bf; 
+    border-bottom: 2px solid #5ac5bf;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #0D0C0B;
+    z-index: 1000;
+    height: 60px; /* Set a fixed height for the header */
+    box-sizing: border-box; /* Include padding and borders in the total width and height */
 }
+
 
 .logo {
     display: flex;
@@ -37,36 +45,6 @@ header {
     letter-spacing: -0.61px;
     line-height: normal;
     margin-left: 10px;
-}
-
-.search {
-    position: relative;
-    width: 240px;
-    display: flex;
-    align-items: center;
-}
-
-.search input {
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: #D9D9D9;
-    opacity: 50%;
-    color: #fff;
-    outline: none;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.search input::placeholder {
-    color: #a0a0a0;
-}
-
-.search i {
-    position: absolute;
-    right: 10px;
-    color: #fff;
 }
 
 .filter-icon {
@@ -90,13 +68,13 @@ header {
     color: #5ac5bf;
 }
 
-.signup-box {
-    background-color: #795547;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
+.join-community {
+            background-color: #29bb00;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
 
-.signup-box a {
+.join-community a {
     text-decoration: none;
     color: #fff;
     font-weight: 700;
@@ -291,14 +269,28 @@ header {
 </head>
 <body>
     <header>
-        <div class="logo"><div class="text-wrapper">Hustlers</div></div>
-        <div class="search">
-            <input type="text" placeholder="Search">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="filter-icon">
+        <a href="index.html"><div class="logo"><div class="text-wrapper">ProjectWall</div></div></a>
+        
+        <!-- <div class="filter-icon" onclick="openFilterOverlay()">
             <i class="fas fa-filter"></i>
-        </div>
+        </div> -->
+    
+        <!-- Filter Overlay -->
+        <!-- <div class="filter-overlay" id="filterOverlay">
+            <div class="filter-options">
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter" onchange="updateDifficultyOptions()">
+                    <option value="webDevelopment">Web Development</option>
+                    <option value="appDevelopment">App Development</option>
+                    <option value="machineLearning">Machine Learning</option>
+                    <option value="chatbot">Chatbot</option>
+                </select>
+    
+    
+                <button onclick="applyFilter()">Apply Filter</button>
+            </div>
+            <span class="overlay-close" onclick="closeFilterOverlay()">&times;</span>
+        </div> -->
         <div class="drawer-icon" onclick="toggleDrawer()">
             <i class="fas fa-bars"></i>
         </div>
@@ -306,17 +298,16 @@ header {
             <a href="index.html">Home</a>
             <a href="about-us.html">About Us</a>
             <a href="contact.html">Contact Us</a>
-            <a href="projects.html" class="active">Projects</a>
+            <a href="project_ideas.html">Project Ideas</a>
         </div>
-        <div class="signup-box">
-            <a href="https://chat.whatsapp.com/FqjB1hqDzgWDFz1ZyA9SCJ">Join Community</a>
+        <div class="join-community">
+            <a href="https://chat.whatsapp.com/HJq51NTpYpYAn9N7TvuCRJ">Join</a>
         </div>
     </header>
 
     <main>
         <div class="main-container">
-            <!-- Include your existing main container content from index.html here -->
-        </div>
+            
 
         <section id="projects" class="projects-container">
             <h2>Projects</h2>
@@ -421,15 +412,61 @@ header {
             <p><strong>Tech Stack:</strong> Python, Nmap</p>
         </div>
 
-        <!-- Add more cybersecurity projects as needed -->
+        
 
 
         </section>
+        </div>
     </main>
 
     
 
 <script>
+    function displayProjects(projects) {
+        const projectsSection = document.getElementById("projects");
+        projectsSection.innerHTML = ""; // Clear existing projects
+
+        projects.forEach((project) => {
+            const projectCard = createProjectCard(project);
+            projectsSection.appendChild(projectCard);
+        });
+    }
+
+    // Function to create a project card
+    function createProjectCard(project) {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project-card");
+
+        projectCard.innerHTML = `
+            <h3>${project.name}</h3>
+            <p><strong>Category:</strong> ${project.category}</p>
+            <p><strong>Tech Stack:</strong> ${project.techStack}</p>
+            <p><strong>Difficulty:</strong> ${project.difficulty}</p>
+            <button class="get-project-button" onclick="redirectToGetProject('${project.name}')">Get Project</button>
+        `;
+
+        // Add event listener to open overlay on project card click
+        projectCard.addEventListener("click", function () {
+            openProjectOverlay(project);
+        });
+
+        return projectCard;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fetch and inject the content of footer.html into #footerContainer
+        const footerContainer = document.getElementById("footerContainer");
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(html => {
+                footerContainer.innerHTML = html;
+            })
+            .catch(error => console.error("Error fetching footer.html:", error));
+
+        // Populate project cards on page load
+        displayProjects(projectsData);
+    });
+
     // Sample project data (replace this with your actual project data)
     const projectsData = [
         // Existing projects
@@ -474,7 +511,9 @@ header {
         // ... (add more projects as needed)
     ];
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded"), function () {
+        
+
         // Highlight the "Projects" button in the header
         const projectsButton = document.querySelector(".links a[href='projects.html']");
         projectsButton.classList.add("active");
@@ -482,22 +521,27 @@ header {
         // Populate project cards on page load
         displayProjects(projectsData);
 
-        // Filter projects when the user types in the search bar
-        const searchInput = document.querySelector(".search input");
-        searchInput.addEventListener("input", function () {
-            const searchTerm = searchInput.value.trim().toLowerCase();
-            const filteredProjects = filterProjects(projectsData, searchTerm);
-            displayProjects(filteredProjects);
-        });
+        // // Filter projects when the user types in the search bar
+        // const searchInput = document.querySelector(".search input");
+        // searchInput.addEventListener("input", function () {
+        //     const searchTerm = searchInput.value.trim().toLowerCase();
+        //     const filteredProjects = filterProjects(projectsData, searchTerm);
+        //     displayProjects(filteredProjects);
+        // });
 
-        // Add event listener for difficulty level selection
-        const difficultySelect = document.getElementById("difficultySelect");
-        difficultySelect.addEventListener("change", function () {
-            const selectedDifficulty = difficultySelect.value;
-            const filteredProjects = filterProjectsByDifficulty(projectsData, selectedDifficulty);
-            displayProjects(filteredProjects);
-        });
-    });
+
+        // Add event listener to the category filter
+    //     const categoryFilter = document.getElementById("categoryFilter");
+    //     categoryFilter.addEventListener("change", function () {
+    //         updateDifficultyOptions();
+
+    //         const selectedCategory = categoryFilter.value;
+    //         const selectedDifficulty = difficultySelect.value;
+    //         const searchTerm = searchInput.value.trim().toLowerCase();
+    //         const filteredProjects = filterProjectsByCategoryAndDifficulty(projectsData, selectedCategory, selectedDifficulty, searchTerm);
+    //         displayProjects(filteredProjects);
+    //     });
+    // });
 
     // Function to display project cards
     function displayProjects(projects) {
@@ -509,7 +553,7 @@ header {
             projectsSection.appendChild(projectCard);
         });
     }
-
+    }
     // Function to create a project card
     function createProjectCard(project) {
         const projectCard = document.createElement("div");
@@ -530,7 +574,7 @@ header {
 
         return projectCard;
     }
-
+    
     // Function to open project overlay
     function openProjectOverlay(project) {
         const projectOverlay = document.getElementById("projectOverlay");
@@ -556,21 +600,16 @@ header {
         projectOverlay.style.display = "none";
     }
 
-    // Function to filter projects based on search term
-    function filterProjects(projects, searchTerm) {
+    // Function to filter projects based on search term and difficulty level
+    function filterProjects(projects, searchTerm, difficulty) {
         return projects.filter((project) =>
             project.name.toLowerCase().includes(searchTerm) ||
             project.category.toLowerCase().includes(searchTerm) ||
-            project.techStack.toLowerCase().includes(searchTerm)
+            project.techStack.toLowerCase().includes(searchTerm) ||
+            project.difficulty.toLowerCase().includes(difficulty)
         );
     }
 
-    // Function to filter projects based on difficulty level
-    function filterProjectsByDifficulty(projects, difficulty) {
-        return projects.filter((project) =>
-            project.difficulty.toLowerCase() === difficulty.toLowerCase()
-        );
-    }
 
     // Function to redirect to the get_project.html page
     function redirectToGetProject(projectName) {
@@ -588,13 +627,67 @@ header {
             })
             .catch(error => console.error("Error fetching footer.html:", error));
     });
+    // Filter Overlay Functions
+    function openFilterOverlay() {
+            const filterOverlay = document.getElementById("filterOverlay");
+            filterOverlay.style.display = "flex";
+        }
+
+        function closeFilterOverlay() {
+            const filterOverlay = document.getElementById("filterOverlay");
+            filterOverlay.style.display = "none";
+        }
+
+        // function updateDifficultyOptions() {
+        //     const categoryFilter = document.getElementById("categoryFilter");
+        //     // Add event listener for difficulty level selection
+        //     const difficultyFilter = document.getElementById("difficultyFilter");
+        //     difficultyFilter.addEventListener("change", function () {
+        //         const selectedDifficulty = difficultyFilter.value;
+        //         const searchTerm = searchInput.value.trim().toLowerCase();
+        //         const filteredProjects = filterProjects(projectsData, searchTerm, selectedDifficulty);
+        //         displayProjects(filteredProjects);
+        //     });
 
 
-</script>
+            // Clear existing options
+            // difficultyFilter.innerHTML = "";
 
-<!-- Existing HTML code below this line -->
+            // Add difficulty options based on selected category
+            const selectedCategory = categoryFilter.value;
+            if (selectedCategory === "webDevelopment" || selectedCategory === "appDevelopment" || selectedCategory === "chatbot") {
+                ["Beginner", "Intermediate", "Advanced"].forEach((difficulty) => {
+                    const option = document.createElement("option");
+                    option.value = difficulty.toLowerCase();
+                    option.textContent = difficulty;
+                    difficultyFilter.appendChild(option);
+                });
+            }
+        
 
+        function applyFilter() {
+            const categoryFilterValue = document.getElementById("categoryFilter").value;
+            const difficultyFilterValue = document.getElementById("difficultyFilter").value;
 
-<div id="footerContainer"></div> <!-- This div will be used to inject the footer content -->
-</body>
+            // Fetch projects based on filters and update the display
+            const filteredProjects = filterProjectsByCategoryAndDifficulty(projectsData, categoryFilterValue, difficultyFilterValue);
+            displayProjects(filteredProjects);
+
+            // Close the filter overlay
+            closeFilterOverlay();
+        }
+
+        function filterProjectsByCategoryAndDifficulty(projects, category, difficulty, searchTerm) {
+        return projects.filter((project) =>
+            (category === "all" || project.category.toLowerCase() === category.toLowerCase()) &&
+            // (difficulty === "all" || project.difficulty.toLowerCase() === difficulty.toLowerCase()) &&
+            (project.name.toLowerCase().includes(searchTerm) ||
+            project.techStack.toLowerCase().includes(searchTerm))
+        );
+    }
+    </script>
+    
+
 </html>
+
+
