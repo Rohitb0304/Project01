@@ -18,17 +18,20 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            border-bottom: 2px solid #5ac5bf;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            background-color: #0D0C0B;
-            z-index: 1000;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #5ac5bf;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #0D0C0B;
+    z-index: 1000;
+    height: 60px; /* Set a fixed height for the header */
+    box-sizing: border-box; /* Include padding and borders in the total width and height */
+}
+
 
         .logo {
             display: flex;
@@ -97,21 +100,32 @@
             max-width: 600px;
             margin: 0 auto;
         }
+        .join-community {
+            background-color: #29bb00;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+.join-community a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <div class="text-wrapper">Hustlers</div>
+            <a href="index.html"><div class="logo"><div class="text-wrapper">Hustlers</div></div></a>
         </div>
         <div class="links">
             <a href="index.html">Home</a>
             <a href="about-us.html">About Us</a>
-            <a href="contact.html" class="active">Contact Us</a>
-            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="active">Contact Us</a> 
+            <a href="project_ideas.html">Project Ideas</a>
         </div>
-        <div class="signup-box">
-            <a href="/signup/signin.html">Signup</a>
+        <div class="join-community">
+            <a href="https://chat.whatsapp.com/HJq51NTpYpYAn9N7TvuCRJ">Join</a>
         </div>
     </header>
 
@@ -119,7 +133,7 @@
         <h2>Contact Us</h2>
         <div class="google-form">
             <!-- Replace YOUR_GOOGLE_FORM_LINK with the actual link to your Google Form -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRrlZrHp3UFlLytBPnooVS4vxgjiMdZwRBEw9aCXSjSfjzYg/viewform?embedded=true" width="640" height="1461" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD9Jjn59GZs6VoCqdenPVK4Ctd1k28jANhpedK54ToKbMCNw/viewform?usp=sf_link" width="600" height="1461" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
     </div>
 </body>
