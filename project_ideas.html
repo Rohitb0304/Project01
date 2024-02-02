@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Project Ideas</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // var categoryFilter = document.getElementById("categoryFilter");
+        
+        
+    });
+    function redirectToProjects() {
+        // Redirect to projects.html
+        window.location.href = "projects.html";
+    }
+
+    
+
+
+    </script>
+
+    </script>
+    <style>
+
+    body {
+        font-family: 'Inria Serif-Bold', 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #0D0C0B;
+        color: #fff;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .project {
+        width: 40%;
+        max-width: 400px;
+        background-color: #444;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+    }
+
+    .project:hover {
+        background-color: #5ac5bf;
+    }
+
+    @media screen and (max-width: 800px) {
+        .project {
+            width: 100%;
+        }
+    }
+
+    .main-heading {
+        margin: 30px;
+        text-align: center;
+    }
+
+    /* Add other styles as needed */
+
+    header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #5ac5bf;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #0D0C0B;
+    z-index: 1000;
+    height: 60px; /* Set a fixed height for the header */
+    box-sizing: border-box; /* Include padding and borders in the total width and height */
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .text-wrapper {
+    -webkit-text-stroke: 1px #ffffff47;
+    font-size: 36px;
+    font-weight: 700;
+    color: #5ac5bf;
+    letter-spacing: -0.61px;
+    line-height: normal;
+    margin-left: 10px;
+}
+
+
+.filter-icon {
+    left: 10px;
+    cursor: pointer;
+    color: #5ac5bf;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #5ac5bf;
+}
+
+.join-community {
+            background-color: #29bb00;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+.join-community a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+    .project .tech-stack {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .project .description {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+        .links a.active {
+            color: #5ac5bf;
+            font-weight: bold;
+        }
+
+    /* Add this style for the Show more button */
+.show-more-button {
+    display: block;
+    margin: 20px auto; /* Adjust the margin as needed */
+    padding: 10px 20px;
+    background-color: #5ac5bf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.show-more-button:hover {
+    background-color: #468b87; /* Change the hover background color as needed */
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <div class="text-wrapper">ProjectWall</div>
+        </a>
+        
+        </div>
+
+        <div class="drawer-icon" onclick="toggleDrawer()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <!-- <a href="projects.html" class="active">Projects</a> -->
+            <a href="project_ideas.html" class="active">Project Ideas</a>
+        </div>
+
+        <div class="join-community">
+            <a href="https://chat.whatsapp.com/HJq51NTpYpYAn9N7TvuCRJ">Join</a>
+        </div>
+    </header>
+
+  <div class="projectsContainer">
+
+    <div class="display-project">
+        <h2 class="main-heading">Web Development Projects </h2>
+        <div class="content web-dev">
+            <div class="project">
+                <h3>E-commerce Website</h3>
+                <p class="tech-stack">Tech Stack: HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+                <p class="tech-stack">Tech Stack 2: Angular (Frontend), Spring Boot (Backend), PostgreSQL (Database)</p>
+                <input type="hidden" class="project-category-hidden" value="webDevelopment">
+                <a href="get_project.html?project=eCommerceWebsite">Get Project</a>
+            </div>
+            
+
+            <div class="project">
+                <h3>Blog Platform</h3>
+                <p class="tech-stack">Tech Stack 1: Vue.js (Frontend), Django (Backend), PostgreSQL(Database)</p>
+                <p class="tech-stack">Tech Stack 2: React.js (Frontend), Flask (Backend), MySQL(Database)</p>
+                <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p class="tech-stack">Tech Stack: HTML, CSS, JavaScript (Frontend), Node.js(Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Online Learning Platform</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Node.js (Backend), MongoDB
+                    (Database), Express.js</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Event Management System</h3>
+                <p class="tech-stack">Tech Stack 1: Angular (Frontend), Django (Backend),
+                    PostgreSQL (Database)
+                <p class="tech-stack">Tech Stack 2: Vue.js (Frontend), Flask (Backend), SQLite
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Task Management Dashboard</h3>
+                <p class="tech-stack">Tech Stack 1: Vue.js (Frontend), Flask (Backend), SQLite
+                    (Database)</p>
+                <p class="tech-stack">Tech Stack 2: React.js (Frontend), Node.js (Backend), MySQL
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Quiz Application</h3>
+                <p class="tech-stack">Tech Stack: HTML, CSS, JavaScript (Frontend), Django
+                    (Backend)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Appointment Booking System (Health)</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Spring Boot (Backend),
+                    MySQL (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+
+            </div>
+
+            <div class="project">
+                <h3>Recipe Sharing Community</h3>
+                <p class="tech-stack"> Tech Stack 1: React.js (Frontend), Node.js (Backend),
+                    MongoDB (Database), Express.js </p>
+                <p class="tech-stack">Tech Stack 2: Angular (Frontend), Django (Backend),
+                    PostgreSQL (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Personal Finance Dashboard</h3>
+                <p class="tech-stack">Tech Stack 1: React.js (Frontend), Flask (Backend), SQLite
+                    (Database)</p>
+                <p class="tech-stack">Tech Stack 2: Angular (Frontend), Node.js (Backend), MongoDB
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Car Rental Service</h3>
+                <p class="tech-stack">Tech Stack 1: React.js (Frontend), Node.js (Backend),
+                MongoDB (Database), Express.js</p>
+                <p class="tech-stack">Tech Stack 2: Vue.js (Frontend), Spring Boot (Backend),
+                MySQL (Database)</p>
+                <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Volunteer Matchmaking</h3>
+                <p class="tech-stack">Tech Stack 1: React.js (Frontend), Node.js (Backend),
+                    MongoDB (Database), Express.js</p>
+                <p class="tech-stack">Tech Stack 2: Vue.js (Frontend), Django (Backend),
+                    PostgreSQL (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+            <div class="project">
+                <h3>Online Marketplace for Handmade Goods</h3>
+                <p class="tech-stack">Tech Stack 1: React.js (Frontend), Node.js (Backend),
+                    MongoDB (Database), Express.js</p>
+                <p class="tech-stack">Tech Stack 2: Angular (Frontend), Flask (Backend), SQLite
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="webDevelopment">
+
+            </div>
+
+        </div>
+        <h2 class="main-heading">App Development Projects</h2>
+        <div class="content app-dev">
+            <div class="project">
+                <h3>Expense Tracker App</h3>
+                <p class="tech-stack">Tech Stack: React Native (Cross-platform), Firebase
+                    (Database)</p>
+                <p class="tech-stack"></p>
+                <input type="hidden" class="project-category-hidden" value="App Development">                
+            </div>
+
+            <div class="project">
+                <h3>Weather App</h3>
+                <p class="tech-stack">Tech Stack 1: Swift (iOS), Java (Android), OpenWeatherMap
+                    API</p>
+                <p class="tech-stack">Tech Stack 2: React Native (Cross-platform), Node.js
+                    (Backend), SQLite (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="App Development">
+
+            </div>
+
+            <div class="project">
+                <h3>To-Do List App</h3>
+                <p class="tech-stack">Tech Stack: React Native (Cross-platform), AsyncStorage
+                    (Local Storage)</p>
+                <p class="tech-stack"></p>
+                <input type="hidden" class="project-category-hidden" value="App Development">
+
+            </div>
+
+            <div class="project">
+                <h3>Recipe App</h3>
+                <p class="tech-stack">Tech Stack 1: Flutter (Cross-platform), MongoDB (Database)</p>
+                <p class="tech-stack">
+                    Tech Stack 2: React Native (Cross-platform), Firebase
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="App Development">
+
+            </div>
+
+            <div class="project">
+                <h3>Travel Diary App</h3>
+                <p class="tech-stack">Tech Stack: Flutter (Cross-platform), SQLite (Database)</p>
+                <p class="tech-stack"></p>
+            </div>
+
+            <div class="project">
+                <h3>Note-Taking App</h3>
+                <p class="tech-stack">Tech Stack: Flutter (Cross-platform), Firebase (Database)</p>
+                <p class="tech-stack"></p>
+                <input type="hidden" class="project-category-hidden" value="App Development">
+            </div>
+
+            <div class="project">
+                <h3>Recipe Organizer App</h3>
+                <p class="tech-stack">Tech Stack: React Native (Cross-platform), Firebase
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="App Development">
+
+            </div>
+
+            <div class="project">
+                <h3>Budget Management App</h3>
+                <p class="tech-stack">Tech Stack: Flutter (Cross-platform), SQLite (Database)</p>
+                <input type="hidden" class="project-category-hidden" value="App Development">
+
+            </div>
+
+            <!-- <div class="project">
+                <h3>Chatbot Versions</h3>
+                <p class="tech-stack"></p>
+                <p class="tech-stack"></p>
+            </div> -->
+
+            <div class="project">
+                <h3>Meditation and Mindfulness App</h3>
+                <input type="hidden" class="project-category-hidden" value="App Development">
+
+
+            </div>
+
+            <div class="project">
+                <h3>Crowdsourced Local Recommendations App</h3>
+                <input type="hidden" class="project-category-hidden" value="App Development">
+
+
+            </div>
+
+            <div class="project app-dev">
+                <h3>Interactive Storytelling App</h3>
+                <input type="hidden" class="project-category-hidden" value="App Development">
+
+
+            </div>
+        </div>
+        <h2 class="main-heading">Machine Learning Projects</h2>
+        <div class="content ml-projects">
+            <div class="project">
+                <h3>Image Recognition System</h3>
+                <p class="tech-stack">Tech Stack: TensorFlow (Library), Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+
+            </div>
+
+            <div class="project">
+                <h3>Sentiment Analysis Tool</h3>
+                <p class="tech-stack">Tech Stack: Python, NLTK (Natural Language Toolkit)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Predictive Stock Price Model</h3>
+                <p class="tech-stack">Tech Stack: Python, Pandas, scikit-learn</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Handwritten Digit Recognition</h3>
+                <p class="tech-stack">Tech Stack: Keras (Library), Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Chatbot with Natural Language Processing (NLP)</h3>
+                <p class="tech-stack">Tech Stack 1: Rasa (Framework), Python</p>
+                <p class="tech-stack">Tech Stack 2: Dialogflow (NLP), Node.js (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+
+            </div>
+
+            <div class="project">
+                <h3>Speech Recognition System</h3>
+                <p class="tech-stack">Tech Stack: TensorFlow (Library), Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Fraud Detection System</h3>
+                <p class="tech-stack">Tech Stack: Python, scikit-learn, Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Recommendation System</h3>
+                <p class="tech-stack">Tech Stack: Python, Pandas, Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Healthcare Diagnosis Tool</h3>
+                <p class="tech-stack">Tech Stack: Keras (Library), Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+                
+            </div>
+
+            <div class="project">
+                <h3>Text Summarization Tool</h3>
+                <p class="tech-stack">Tech Stack: Natural Language Toolkit (NLTK), Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+
+            </div>
+
+            <div class="project">
+                <h3>Facial Recognition System</h3>
+                <p class="tech-stack">Tech Stack: OpenCV, Python</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+
+            </div>
+
+            <div class="project">
+                <h3>Spam Email Filter</h3>
+                <p class="tech-stack">Tech Stack: Python, scikit-learn, Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Credit Scoring Model</h3>
+                <p class="tech-stack">Tech Stack: Python, Pandas, TensorFlow</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Disease Prediction System</h3>
+                <p class="tech-stack">Tech Stack: Keras (Library), Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+            </div>
+
+            <div class="project">
+                <h3>Document Classification Tool</h3>
+                <p class="tech-stack">Tech Stack: Python, NLTK, Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Machine Learning">
+
+            </div>
+        </div>
+        <h2 class="main-heading">Chatbot Projects</h2>
+        <div class="content chatbot-projects">
+            <div class="project">
+                <h3>Customer Support Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Dialogflow (NLP), Node.js (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+            </div>
+
+            <div class="project">
+                <h3>Educational Q&A Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Python, ChatterBot</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+            </div>
+
+            <div class="project">
+                <h3>Appointment Scheduling Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Botpress (Framework), MongoDB (Database)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+            </div>
+
+            <div class="project">
+                <h3>Travel Assistance Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Dialogflow (NLP), Node.js (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+            </div>
+
+            <div class="project">
+                <h3>Smart Home Control Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Botpress (Framework), MongoDB (Database)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+            </div>
+
+            <div class="project">
+                <h3>Job Application Chatbot</h3>
+                <p class="tech-stack">Tech Stack 1: Rasa (Framework), Python</p>
+                <p class="tech-stack">Tech Stack 2: Dialogflow (NLP), Firebase (Database)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+               
+            </div>
+
+            <div class="project">
+                <h3>Language Translation Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Google Translate API, Node.js (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+                
+            </div>
+
+            <div class="project">
+                <h3>Code Review Assistant Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Python, NLTK, Flask (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+          
+            </div>
+
+            <div class="project">
+                <h3>Virtual Personal Assistant Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Dialogflow (NLP), Node.js (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+            </div>
+
+            <div class="project">
+                <h3>Mental Health Support Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Rasa (Framework), Python</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+               
+            </div>
+
+            <div class="project">
+                <h3>Language Learning Chatbot</h3>
+                <p class="tech-stack">Tech Stack: Google Translate API, Node.js (Backend)</p>
+                <input type="hidden" class="project-category-hidden" value="Chatbot Projects">
+             
+            </div>
+        </div>
+        <h2 class="main-heading">Cryptocurrency and Blockchain Projects</h2>
+        <div class="content blockchain-projects">
+            <div class="project">
+                <h3>Cryptocurrency Price Tracker</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Node.js (Backend),
+                    CoinGecko API</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+            </div>
+
+            <div class="project">
+                <h3>Blockchain-based Voting System</h3>
+                <p class="tech-stack">Tech Stack 1: Ethereum (Smart Contracts), Solidity, Web3.js</p>
+                <p class="tech-stack">Tech Stack 2: Hyperledger Fabric (Framework), Node.js
+                    (Backend)</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+            </div>
+
+            <div class="project">
+                <h3>Decentralized Finance (DeFi) Dashboard</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Node.js (Backend), Ethereum
+                    Smart Contracts</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+            </div>
+
+            <div class="project">
+                <h3>Decentralized Social Media Platform</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Ethereum (Smart Contracts),
+                    Solidity</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+                
+            </div>
+
+            <div class="project">
+                <h3>Tokenization Platform</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Node.js (Backend), Ethereum
+                    (Smart Contracts)</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+            </div>
+
+            <div class="project">
+                <h3>Blockchain-based Supply Chain Management</h3>
+                <p class="tech-stack">Tech Stack: Hyperledger Fabric (Framework), Node.js
+                    (Backend)</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+                
+            </div>
+
+            <div class="project">
+                <h3>Crypto Wallet</h3>
+                <p class="tech-stack">Tech Stack: React Native (Cross-platform), Node.js
+                    (Backend), Ethereum</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+               
+            </div>
+
+            <div class="project">
+                <h3>NFT Marketplace</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Solidity, Ethereum (Smart
+                    Contracts)</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+                
+            </div>
+
+            <div class="project">
+                <h3>Token Swap Platform</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Node.js (Backend), Ethereum
+                    Smart Contracts</p>
+                    <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+            </div>
+
+            <div class="project">
+                <h3>Crypto Payment Gateway</h3>
+                <p class="tech-stack">Tech Stack: Angular (Frontend), Flask (Backend), Bitcoin API</p>
+                <input type="hidden" class="project-category-hidden" value="Cryptocurrency and Blockchain Projects">
+            </div>
+        </div>
+        <h2 class="main-heading">Cybersecurity Projects</h2>
+        <div class="content cybersecurity-projects">
+            <div class="project">
+                <h3>Password Manager</h3>
+                <p class="tech-stack">Tech Stack: React.js (Frontend), Flask (Backend), SQLite
+                    (Database)</p>
+                    <input type="hidden" class="project-category-hidden" value="cybersecurity-projects">
+                
+            </div>
+
+            <div class="project">
+                <h3>Network Security Scanner</h3>
+                <p class="tech-stack">Tech Stack: Python, Nmap</p>
+                <input type="hidden" class="project-category-hidden" value="cybersecurity-projects">
+            </div>
+
+            <div class="project">
+                <h3>Intrusion Detection System (IDS)</h3>
+                <p class="tech-stack">Tech Stack: Snort (Open Source IDS), Python</p>
+                <input type="hidden" class="project-category-hidden" value="cybersecurity-projects">
+            </div>
+
+            <div class="project">
+                <h3>Secure File Encryption and Decryption</h3>
+                <p class="tech-stack">Tech Stack 1: Java (or Python), AES Encryption Algorithm</p>
+                <p class="tech-stack">Tech Stack 2: React.js (Frontend), Node.js (Backend),
+                    OpenSSL</p>
+                    <input type="hidden" class="project-category-hidden" value="cybersecurity-projects">
+            </div>
+        </div>
+        <button class="show-more-button" onclick="redirectToProjects()">Show more</button>
+
+
+    </div>
+</div>
+
+</body>
+
+
+</html>
