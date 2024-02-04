@@ -702,6 +702,18 @@
         
     </div>
 </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Fetch and inject the content of footer.html into #footerContainer
+        const footerContainer = document.getElementById("footerContainer");
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(html => {
+                footerContainer.innerHTML = html;
+            })
+            .catch(error => console.error("Error fetching footer.html:", error));
+    });
+    </script>
 
 </body>
 
