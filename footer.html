@@ -1,33 +1,36 @@
 <style>
     /* Footer styles */
-            footer {
+    footer {
         background-color: #0D0C0B;
         color: #fff;
-        padding: 40px 20px;
+        padding: 20px 20px; /* Reduced padding */
     }
-    
+
     .footer-container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        height: fit-content;
         gap: 20px;
     }
-    
+
     .newsletter a {
-        color: #5ac5bf; /* Change this color to your preference */
+        color: #fff; /* Change this color to your preference */
         text-decoration: none;
+        font-size: large; /* Adjusted font size */
     }
-    
+
     /* Add this style to change the color of the link on hover */
     .newsletter a:hover {
-        color: #4aa79e; /* Change this color to your preference */
+        color: #5ac5bf; /* Change this color to your preference */
     }
+
     form {
         display: flex;
         gap: 10px;
     }
-    
+
     input[type="email"] {
         width: 70%;
         padding: 8px;
@@ -37,7 +40,7 @@
         color: #fff;
         outline: none;
     }
-    
+
     button {
         padding: 8px 15px;
         background-color: #5ac5bf;
@@ -46,57 +49,88 @@
         border-radius: 5px;
         cursor: pointer;
     }
-    
+
     button:hover {
         background-color: #4aa79e;
     }
-    
-    .copyright {
-        margin-top: 20px;
-        text-align: center;
+
+    .contact-info {
+        display: flex;
+        flex-direction: column; /* Adjusted to a column layout */
+        align-items: baseline; /* Align items to the baseline */
+        gap: 10px; /* Adjust this value to set the gap between "Fill the form for details" and "Contact Us" */
     }
-    
+
+    .contact-info h3 {
+        margin: 0; /* Remove default margin for h3 */
+    }
+
+    .contact-info p {
+        margin: 0; /* Remove default margin for p */
+        font-size: large; /* Adjusted font size */
+    }
+
+    .contact-info p a {
+        color: #5ac5bf; /* Change this color to your preference */
+        text-decoration: none;
+    }
+
+    .contact-info p a:hover {
+        color: #4aa79e; /* Change this color to your preference */
+    }
+
+    .copyright {
+        margin-top: 10px; /* Adjusted margin-top */
+        text-align: center;
+        border-top: 1px solid #5ac5bf; /* Added border-top */
+        padding-top: 10px; /* Added padding-top */
+    }
+
+    .copyright p {
+        margin: 0; /* Remove default margin for p */
+        font-size: large; /* Adjusted font size */
+    }
+
     @media screen and (max-width: 768px) {
         footer {
             flex-direction: column;
         }
-    
+
         .footer-container {
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
         }
-    
+
         .newsletter,
         .contact-info {
             width: 100%;
+            
         }
-    
+
         form {
             flex-direction: column;
         }
-    
+
         input[type="email"] {
             width: 100%;
         }
     }
-    
-    </style>
-    <footer>
-        <div class="footer-container">
-            <div class="newsletter">
-                <a href="contact.html">Fill the form for details</a>
-                
-            </div>
-    
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>Email: ideawall2024@gmail.com</p>
-                
-            </div>
+</style>
+
+<footer>
+    <div class="footer-container">
+        <div class="newsletter">
+            <a href="contact.html">Please fill out the form for project and other info</a><br>
+            <button type="button"><Form:post><a href="contact.html">Form</a></Form:post></button>
         </div>
-    
-        <div class="copyright">
-            <p>&copy; 2024 IdeaWall. All Rights Reserved.</p>
+
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:ideawall2024@gmail.com">ideawall2024@gmail.com</a></p>
         </div>
-    </footer>
-    
+    </div>
+
+    <div class="copyright">
+        <p>&copy; 2024 IdeaWall. All Rights Reserved.</p>
+    </div>
+</footer>
