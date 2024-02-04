@@ -143,24 +143,40 @@
             width: 0;
             font-size: 28px;
             font-family: fantasy;
-            animation: typing 3s steps(30, end), backspacing 2s steps(30, end) 4s forwards;
+            animation: typeBackspaceLoop 14s infinite;
         }
 
+        @keyframes typeBackspaceLoop {
+            0%, 100% {
+                width: 0;
+                visibility: hidden;
+            }
+            10%, 90% {
+                width: 0;
+                visibility: visible;
+            }
+            30%, 50%, 70% {
+                width: 100%;
+                visibility: visible;
+            }
+        }
+
+
         /* Change colors for Ideas and Reality */
-.welcome-to-the::before {
-    content: "Turning ";
-    color: #fff; /* New color for Turning */
-}
+        .welcome-to-the::before {
+            content: "Turning ";
+            color: #fff; /* New color for Turning */
+        }
 
-.welcome-to-the::after {
-    content: "";
-    color: #fff; /* New color for Into */
-}
+        .welcome-to-the::after {
+            content: "";
+            color: #fff; /* New color for Into */
+        }
 
-/* Add a color for the main text */
-.welcome-to-the span {
-    color: #5ac5bf; /* Color for the main text */
-}
+        /* Add a color for the main text */
+        .welcome-to-the span {
+            color: #5ac5bf; /* Color for the main text */
+        }
 
 
 
