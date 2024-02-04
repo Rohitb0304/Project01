@@ -1,140 +1,149 @@
-<style>
-    /* Footer styles */
-    footer {
-        background-color: #0D0C0B;
-        color: #fff;
-        padding: 30px 20px; /* Increased padding for height */
-    }
 
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        height: fit-content;
-        gap: 20px;
-    }
-
-    .newsletter {
-        color: #fff; /* Change this color to your preference */
-        font-size: large; /* Adjusted font size */
-    }
-
-    /* Add this style to change the color of the link on hover */
-    .newsletter a {
-        color: #5ac5bf; /* Change this color to your preference */
-        text-decoration: none;
-    }
-
-    .newsletter a:hover {
-        color: #4aa79e; /* Change this color to your preference */
-    }
-
-    form {
-        display: flex;
-        gap: 10px;
-    }
-
-    input[type="email"] {
-        width: 70%;
-        padding: 8px;
-        border: none;
-        border-radius: 5px;
-        background-color: #D9D9D9;
-        color: #fff;
-        outline: none;
-    }
-
-    button {
-        padding: 5px 10px; /* Reduced padding for the button */
-        background-color: #5ac5bf;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #4aa79e;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-direction: column; /* Adjusted to a column layout */
-        align-items: baseline; /* Align items to the baseline */
-        gap: 10px; /* Adjust this value to set the gap between "Fill the form for details" and "Contact Us" */
-    }
-
-    .contact-info h3 {
-        margin: 0; /* Remove default margin for h3 */
-    }
-
-    .contact-info p {
-        margin: 0; /* Remove default margin for p */
-        font-size: large; /* Adjusted font size */
-    }
-
-    .contact-info p a {
-        color: #5ac5bf; /* Change this color to your preference */
-        text-decoration: none;
-    }
-
-    .contact-info p a:hover {
-        color: #4aa79e; /* Change this color to your preference */
-    }
-
-    .copyright {
-        margin-top: 10px; /* Adjusted margin-top */
-        text-align: center;
-        border-top: 1px solid #5ac5bf; /* Added border-top */
-        padding-top: 10px; /* Added padding-top */
-    }
-
-    .copyright p {
-        margin: 0; /* Remove default margin for p */
-        font-size: large; /* Adjusted font size */
-    }
-
-    @media screen and (max-width: 768px) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Footer styles */
         footer {
-            flex-direction: column;
+            background-color: #0D0C0B;
+            color: #fff;
+            padding: 30px 20px; /* Increased padding for height */
         }
 
-        .footer-container {
-            flex-direction: column;
-            align-items: flex-end;
+        .footerContainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            height: fit-content;
+            gap: 20px;
+            border-top: 1px solid #5ac5bf; /* Added border above the footer */
+            padding-top: 20px; /* Added padding above the border */
         }
 
-        .newsletter,
-        .contact-info {
-            width: 100%;
+        .newsletter {
+            color: #fff; /* Change this color to your preference */
+            font-size: large; /* Adjusted font size */
+        }
+
+        /* Add this style to change the color of the link on hover */
+        .newsletter a {
+            color: #5ac5bf; /* Change this color to your preference */
+            text-decoration: none;
+        }
+
+        .newsletter a:hover {
+            color: #4aa79e; /* Change this color to your preference */
         }
 
         form {
-            flex-direction: column;
+            display: flex;
+            gap: 10px;
         }
 
         input[type="email"] {
-            width: 100%;
+            width: 70%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background-color: #D9D9D9;
+            color: #fff;
+            outline: none;
         }
-    }
-</style>
 
-<footer>
-    <div class="footerContainer">
-        <div class="newsletter">
-            <p>Please fill out the form for project and other info</p>
+        button {
+            padding: 5px 10px; /* Reduced padding for the button */
+            background-color: #5ac5bf;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4aa79e;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column; /* Adjusted to a column layout */
+            align-items: baseline; /* Align items to the baseline */
+            gap: 10px; /* Adjust this value to set the gap between "Fill the form for details" and "Contact Us" */
+        }
+
+        .contact-info h3 {
+            margin: 0; /* Remove default margin for h3 */
+        }
+
+        .contact-info p {
+            margin: 0; /* Remove default margin for p */
+            font-size: large; /* Adjusted font size */
+        }
+
+        .contact-info p a {
+            color: #5ac5bf; /* Change this color to your preference */
+            text-decoration: none;
+        }
+
+        .contact-info p a:hover {
+            color: #4aa79e; /* Change this color to your preference */
+        }
+
+        .copyright {
+            margin-top: 10px; /* Adjusted margin-top */
+            text-align: center;
+            padding-top: 10px; /* Added padding-top */
+        }
+
+        .copyright p {
+            margin: 0; /* Remove default margin for p */
+            font-size: large; /* Adjusted font size */
+        }
+
+        @media screen and (max-width: 768px) {
+            footer {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .newsletter,
+            .contact-info {
+                width: 100%;
+            }
+
+            form {
+                flex-direction: column;
+            }
+
+            input[type="email"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="footerContainer">
+            <div class="newsletter">
+                <p>Please fill out the form for project and other info</p>
                 <a href="contact.html"><button type="submit">Form</button></a>
-            
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:ideawall2024@gmail.com">ideawall2024@gmail.com</a></p>
+            </div>
         </div>
 
-        <div class="contact-info">
-            <h3>Contact Us</h3>
-            <p>Email: <a href="mailto:ideawall2024@gmail.com">ideawall2024@gmail.com</a></p>
+        <div class="copyright">
+            <p>&copy; 2024 IdeaWall. All Rights Reserved.</p>
         </div>
-    </div>
-
-    <div class="copyright">
-        <p>&copy; 2024 IdeaWall. All Rights Reserved.</p>
-    </div>
-</footer>
+    </footer>
+</body>
+</html>
