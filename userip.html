@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Logger</title>
+</head>
+<body>
+    <h1>User Data Logger</h1>
+    <p id="user-data"></p>
+
+    <script>
+        // Function to fetch IP address
+        function fetchIpAddress() {
+            return fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => data.ip);
+        }
+
+        // Function to log data to localStorage
+        function logUserData(ip, browser) {
+            // Retrieve existing data or initialize it
+            let userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+            // Check if this IP is already logged
+            let userEntry = userData.find(entry => entry.ip === ip && entry.browser === browser);
+
+            if (userEntry) {
+                // Increment view count if IP and browser match
+                userEntry.views += 1;
+            } else {
+                // Otherwise, create a new entry
+                userData.push({ ip, browser, views: 1 });
+            }
+
+            // Save back to localStorage
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Display the logged data
+            displayUserData(userData);
+        }
+
+        // Function to display user data in the HTML table
+        function displayUserData(data) {
+            let output = '<table border="1"><tr><th>IP Address</th><th>Browser</th><th>Total Views</th></tr>';
+            data.forEach(entry => {
+                output += `<tr><td>${entry.ip}</td><td>${entry.browser}</td><td>${entry.views}</td></tr>`;
+            });
+            output += '</table>';
+
+            document.getElementById('user-data').innerHTML = output;
+        }
+
+        // Main function to get IP and browser, and log it
+        (async function() {
+            const ip = await fetchIpAddress();
+            const browser = navigator.userAgent;
+            logUserData(ip, browser);
+        })();
+    </script>
+</body>
+</html>
